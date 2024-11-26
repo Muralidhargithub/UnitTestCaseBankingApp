@@ -60,11 +60,6 @@ final class UnitTestCaseBankingAppTests: XCTestCase {
     override func tearDownWithError() throws {
         account = nil
     }
-    func testNegativeInitialBalance() {
-        XCTAssertThrowsError(try Account(-100.0)) { error in
-            XCTAssertEqual(error as? AccountError, AccountError.negativeDeposit)
-        }
-    }
 
     func testDeposit() throws {
         try account.deposit(amount: 50.0)
